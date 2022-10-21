@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/listFakultetFragment">
+
+    <fragment
+        android:id="@+id/listFakultetFragment"
+        android:name="com.example.students.fakultet.ListFakultetFragment"
+        android:label="fragment_list_fakultet"
+        tools:layout="@layout/fragment_list_fakultet" >
+
+        <action
+            android:id="@+id/action_listFakultetFragment_to_listGroupFragment"
+            app:destination="@id/listGroupFragment" />
+        <action
+            android:id="@+id/action_listFakultetFragment_to_addingFragment"
+            app:destination="@id/addingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listGroupFragment"
+        android:name="com.example.students.group.ListGroupFragment"
+        android:label="fragment_list_group"
+        tools:layout="@layout/fragment_list_group" >
+        <action
+            android:id="@+id/action_listGroupFragment_to_listStudentFragment"
+            app:destination="@id/listStudentFragment" />
+        <action
+            android:id="@+id/action_listGroupFragment_to_addingFragment"
+            app:destination="@id/addingFragment" />
+        <argument
+            android:name="facultyId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/listStudentFragment"
+        android:name="com.example.students.students.ListStudentFragment"
+        android:label="fragment_list_student"
+        tools:layout="@layout/fragment_list_student" >
+        <action
+            android:id="@+id/action_listStudentFragment_to_addingFragment"
+            app:destination="@id/addingFragment" />
+        <argument
+            android:name="groupId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFakultetsFragment"
+        android:name="com.example.students.fakultet.AddFakultetsFragment"
+        android:label="fragment_add_fakultets"
+        tools:layout="@layout/fragment_add_fakultets" />
+    <fragment
+        android:id="@+id/addingFragment"
+        android:name="com.example.students.AddingFragment"
+        android:label="fragment_adding"
+        tools:layout="@layout/fragment_adding" >
+        <action
+            android:id="@+id/action_addingFragment_to_addFakultetsFragment"
+            app:destination="@id/addFakultetsFragment" />
+        <action
+            android:id="@+id/action_addingFragment_to_addGroupFragment"
+            app:destination="@id/addGroupFragment" />
+        <action
+            android:id="@+id/action_addingFragment_to_addGroupFragment2"
+            app:destination="@id/addGroupFragment" />
+        <action
+            android:id="@+id/action_addingFragment_to_addStudentsFragment"
+            app:destination="@id/addStudentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGroupFragment"
+        android:name="com.example.students.group.AddGroupFragment"
+        android:label="fragment_add_group"
+        tools:layout="@layout/fragment_add_group" />
+    <fragment
+        android:id="@+id/addStudentsFragment"
+        android:name="com.example.students.students.AddStudentsFragment"
+        android:label="fragment_add_students"
+        tools:layout="@layout/fragment_add_students" />
+</navigation>
